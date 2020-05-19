@@ -1,0 +1,160 @@
+@charset 'UTF-8';
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
+body {
+    background-color: #fcfcfc;
+}
+
+ol, ul {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover{text-decoration:none;}
+
+image {
+    max-width: 100%
+}
+
+.font-size14{font-size:14px;}
+.font-size12{font-size:12px;}
+.font-size10{font-size:11px;}
+
+.text-white{color:#fff;}
+.text-gray{color:#333;}
+.text-dgray{color:#999;}
+.text-green{color:#58a05a;}
+.text-black{color:#000;}
+
+.back-red{background:#ff5400;}
+.back-green{background:#7ab900;}
+
+
+#wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%
+}
+
+.noapp {
+    float: right;
+    margin-top: 6px;
+    background-image: url('../../images/download-unable.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.app, .app:visited, .app:link {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/download-common.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.app:active, .app:hover {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/download-click.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.online, .online:visited, .online:link {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/online-common.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.online:active, .online:hover {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/online-click.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.online-ios, .online-ios:visited, .online-ios:link {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/online-ios-common.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.online-ios:active, .online-ios:hover {
+    float: right;
+    margin-top: 6px;
+    outline: 0 none;
+    background-image: url('../../images/online-ios-click.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.offline {
+    float: right;
+    margin-top: 6px;
+    background-image: url('../../images/offline.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.offline-ios {
+    float: right;
+    margin-top: 6px;
+    background-image: url('../../images/offline-ios.png');
+    background-size: 34px 34px;
+    background-repeat: no-repeat
+}
+
+.status_btn {
+    display: block;
+    width: 50px;
+    height: 50px
+}
+
+.cateName {
+    height: 20px;
+    overflow: hidden;
+}
+
+.title h3 {
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    overflow: hidden;
+    height: 28px;
+}
+
+.limg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    background-image: url('../../images/def.jpg');
+    left: 0;
+    top: 0;}
+
+.po-relative{position:relative;}

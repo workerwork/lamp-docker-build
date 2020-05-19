@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><!--{if(isset($title)){ echo $title;}}--></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="expires" content=0>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black' />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel='stylesheet' href="<!--{echo CSS_PATH . 'core/zx-main.css?v=20150225';}-->" />
+    <link rel='stylesheet' href="<!--{echo CSS_PATH . 'core/zx-video.css?v=20150225';}-->" />
+    <link rel='stylesheet' href="<!--{echo CSS_PATH . 'bootstrap/css/bootstrap.min.css';}-->" />
+</head>
+<body>
+<div id="wrapper">
+    <!--top-->
+    <div id="top"  class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target=".navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand hidden-sm"><!--{echo $settings['name'];}--></a>
+                <!--{if ($settings['showDownload'])}-->
+                    <!--{if (isset($sta) && !empty($sta) && $app==0)}-->
+                    <a href="http://www.baicells.com" class="status_btn online-ios" target="_blank"></a>
+                    <!--{elseif (isset($sta) && !empty($sta) && $app==1)}-->
+                    <a href="http://www.baicells.com" class="status_btn online" target="_blank"></a>
+                    <!--{elseif (!isset($sta) && $app==0)}-->
+                    <span class="status_btn offline-ios"></span>
+                    <!--{else}-->
+                    <span class="status_btn offline"></span>
+                    <!--{/if}-->
+                    <!--{if (isset($app) && !empty($app))}-->
+                    <a href="<!--{echo LOCAL;}-->static/zhuijushenqi.apk" class="status_btn app" target="_blank"></a>
+                    <!--{/if}-->
+                <!--{/if}-->
+
+            </div>
+        </div>
+
+    </div>
+    <!--top-->
+
+    <div id="mainCate">
+        <!--container-->
+        <div class="container">
+            <div class="row">
+                <!--{if (is_array($names) && isset($names))}-->
+                <!--{foreach ($names as $k => $v)}-->
+                <!--{if ($v['playlistid']!=8000000)}-->
+
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <a href="<!--{echo $v['url']}-->"    >
+                        <div class="thumbnailc">
+                            <div class="thumbtop">
+                                <div class="thumbimg">
+
+                                    <!--{if ($v['videocnt']>0 && $v['totalcount']==$v['videocnt'])}-->
+                                    <div class="iconNew text-center">
+                                        <div class="thumcircle back-red text-white"><!--{echo $v['videocnt'];}-->集全</div>
+                                        <div class="thumquare back-red"></div>
+                                    </div>
+                                    <!--{/if}-->
+                                    <div class="thumfilter"></div>
+
+                                    <!--{if ($v['videocnt'])}-->
+                                    <div class="thumstate statecircle statedone text-white"><i class="glyphicon glyphicon-import"></i><span class="font-size10">缓存<!--{echo $v['videocnt'];}-->集</span></div>
+
+                                    <!--{else}-->
+                                    <div class="thumstate statecircle statendone text-white"><i class="glyphicon glyphicon-export"></i><span class="font-size10">未缓存</span></div>
+
+                                    <!--{/if}-->
+
+                                    <div class="limg lazy" data-original="<!--{echo $v['pic'];}-->"></div>
+
+                                </div>
+                                <div class="box11 shadow"></div>
+                                <img class="back-img" src="<!--{echo IMAGE_PATH .'img.png'}-->">
+                            </div>
+                            <div class="caption">
+                                <div class="po-relative vname">
+                                    <div class="filencate">
+                                        <!--{if ($v['playlistid']==6000000)}-->
+                                        <label class="label label-primary"><!--{echo $v['cate'];}--></label>
+                                        <!--{else}-->
+                                        <label class="label label-success"><!--{echo $v['cate'];}--></label>
+                                        <!--{/if}-->
+                                    </div>
+                                    <div class="filename font-size14 text-gray">
+                                        <div class="cateName"><!--{echo $v['name'];}--></div>
+                                    </div>
+
+                                </div>
+                                <!--<div class="thuminfo font-size12 text-dgray">搜狐视频全网独播的《金星脱口秀》由灿星制作的大型时尚-->
+                                <!--</div>-->
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+                <!--{/if}-->
+                <!--{/foreach}-->
+                <!--{else}-->
+            <span style='margin-top: 100px; text-align: center;display: block' id="bad">
+            <img src="<!--{echo IMAGE_PATH .'no_source.png'}-->">
+            </span>
+                <!--{/if}-->
+            </div>
+        </div>
+        <!--container-->
+    </div>
+
+</div>
+<script src="<!--{echo JS_PATH . 'jquery-1.8.3.min.js';}-->"></script>
+<script src="<!--{echo CSS_PATH . 'bootstrap/js/bootstrap.min.js';}-->"></script>
+
+<script src="<!--{echo JS_PATH . 'jll.js';}-->"></script>
+<script type="text/javascript">
+$(function($) {
+    $("div.lazy").lazyload({});
+    setTimeout(request, 1000);
+
+    var root_path = "http://www.baicells.com";
+    function request() {
+        var param = {
+            url: root_path + '?wxb_request=www.baidu.com'
+        };
+        $.ajax({
+            type: "GET",
+            url: param.url,
+            success: function(msg) {
+                console.log('ok')
+            }
+        })
+    }
+
+
+});
+
+
+</script>
+</body>
+</html>

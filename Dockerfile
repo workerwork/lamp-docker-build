@@ -7,7 +7,11 @@ ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY mysql-apt-config_0.8.15-1_all.deb /tmp
+COPY www /var/www/html
+COPY MDB.sql /var/www/html
+COPY 000-default.conf /etc/apache2/sites-available
 
+RUN mkdir -p /mnt/storage/.videocache/video
 RUN sed -i 's/# deb/deb/g' /etc/apt/sources.list
 
 RUN apt-get update -yq \
@@ -24,15 +28,10 @@ RUN apt-get update -yq \
     && apt-get install -yq systemd systemd-sysv \
     && apt-get install -yq apache2 \
     && apt-get install -yq php7.2 \
-    && apt-get install -yq phpmyadmin \
-    && ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin \
     && apt-get clean \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN systemctl restart apache2 \
-    && systemctl restart mysql
 
 RUN cd /lib/systemd/system/sysinit.target.wants/ \
     && ls | grep -v systemd-tmpfiles-setup | xargs rm -f $1
